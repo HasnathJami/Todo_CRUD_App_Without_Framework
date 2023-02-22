@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/HasnathJami/todo-crud/controllers/utils"
 	"github.com/HasnathJami/todo-crud/datasource"
 	"github.com/HasnathJami/todo-crud/models"
+	"github.com/HasnathJami/todo-crud/utils"
 )
 
 var tasks []models.Task = datasource.GetData()
@@ -53,7 +53,7 @@ func GetTasks(w http.ResponseWriter, r *http.Request){
 
 func GetTaskById(w http.ResponseWriter, r *http.Request){
     w.Header().Set("Content-Type", "application-json")
-    w.Header().Set("Access-Control-Allow-Method", "POST")
+    w.Header().Set("Access-Control-Allow-Method", "GET")
     if r.Method == "GET"{
         id := r.URL.Query().Get("id")
 
